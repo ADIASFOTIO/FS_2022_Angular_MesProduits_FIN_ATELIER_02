@@ -16,14 +16,27 @@ export class ProduitsComponent implements OnInit {
      }
 
   ngOnInit(): void {
-
-    this.produits = this.produitService.listeProduits();
+    this.chargerProduits();
   }
-  supprimerProduit(prod : Produit){
+/*   supprimerProduit(prod : Produit){
     let conf = confirm("Etes-vous sûr ?");
     if (conf)
-
     this.produitService.supprimerProduit(prod);
+  } */
+  chargerProduits(){
+    this.produitService.listeProduit().subscribe(prods => {
+      console.log(prods);
+      this.produits = prods;
+      });
   }
+  supprimerProduit(p: Produit){
+    let conf = confirm("Etes-vous sûr ?");
+      if (conf)
+    this.produitService.supprimerProduit(p.idProduit).subscribe(() => {
+         console.log("produit supprimé");
+         this.chargerProduits(); // recharge la page apres suppression
+    });
+  } 
+
 
 }
