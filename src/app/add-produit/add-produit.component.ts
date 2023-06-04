@@ -19,6 +19,11 @@ export class AddProduitComponent implements OnInit {
 
   ngOnInit(): void {
     // this.categories = this.produitService.listeCategories();
+    this.produitService.listeCategories().
+    subscribe(cats => {this.categories = cats._embedded.categories;
+    console.log(cats);
+    });
+
   }
 
 /*   addProduit() {
@@ -29,6 +34,7 @@ export class AddProduitComponent implements OnInit {
     this.router.navigate(["produits"]);
   } */
   addProduit(){
+    this.newProduit.categorie = this.categories.find(cat => cat.idCat == this.newIdCat)!;
     this.produitService.ajouterProduit(this.newProduit)
     .subscribe(prod => {
     console.log(prod);

@@ -7,12 +7,22 @@ import { AddProduitComponent } from './add-produit/add-produit.component';
 import { FormsModule } from '@angular/forms';
 import { UpdateProduitComponent } from './update-produit/update-produit.component';
 import{HttpClientModule} from '@angular/common/http';
+import { RechercheParCategorieComponent } from './recherche-par-categorie/recherche-par-categorie.component';
+import { RechercheParNomComponent } from './recherche-par-nom/recherche-par-nom.component';
+import { ListeCategoriesComponent } from './liste-categories/liste-categories.component';
+import { UpdateCategorieComponent } from './update-categorie/update-categorie.component';
+import { LoginComponent } from './login/login.component';
 @NgModule({
   declarations: [
     AppComponent,
     ProduitsComponent,
     AddProduitComponent,
-    UpdateProduitComponent
+    UpdateProduitComponent,
+    RechercheParCategorieComponent,
+    RechercheParNomComponent,
+    ListeCategoriesComponent,
+    UpdateCategorieComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
